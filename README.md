@@ -41,7 +41,7 @@ I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an 
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here is an example using the `YCrCb` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 ![alt text][image2]
 
@@ -76,10 +76,11 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 Used data normalize to remove false negatives for classifier.  Further HoG subsampling also used to get better performance in feature extraction and classification.
 Implementation of HoG subsampling is available in cell#25.
 
-Here are some example images with sliding window and HoG subsampling
+Here are some example of pipeline images with sliding window:
 
 ![alt text][image4]
 
+Example of HoG subsampling:
 ![alt text][image5]
 ---
 
@@ -98,7 +99,7 @@ To avoid false positives, I sampled last N=10 results for consecutive frames tha
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
+### Here is heatmap example :
 
 ![alt text][image6]
 
@@ -114,4 +115,4 @@ Here's an example result showing the heatmap from a series of frames of video, t
 1. I spent lot of time issues dealing with .png, .jpg and its variation seen in image and video processing.
    I should have first converted all data files into jpg and should have used mpimg.imread for reading them for better consistency throughout.
 2. There are few false negatives seen in video, however that may be mainly because incorrect labelled data and can be improved with hard data mining.
-
+3. It took >10 min to process 50 sec video. So fps result is very lagging. This defininately not acceptable in real time. Should look for finding other approaches and also improve current pipeline etc. 
