@@ -117,4 +117,7 @@ Here's an example result showing the heatmap from a series of frames of video, t
 2. There are few false negatives seen in video, however that may be mainly because incorrect labelled data and can be improved with hard data mining.
 3. It took >10 min to process 50 sec video. So fps result is very lagging. This defininately not acceptable in real time. Should look for finding other approaches and also improve current pipeline etc. 
 
-#References: I used majorly lessons code.
+#References:
+1. I used majorly lessons code.
+2. As suggested in code review, https://chatbotslife.com/vehicle-detection-and-tracking-using-computer-vision-baea4df65906
+
